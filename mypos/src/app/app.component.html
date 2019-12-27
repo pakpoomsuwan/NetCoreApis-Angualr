@@ -1,0 +1,13 @@
+<ng-container *ngIf="!authService.isLogin(); then member; else home"></ng-container>
+<ng-template #member>
+  <router-outlet></router-outlet>
+</ng-template>
+<ng-template #home>
+  <app-header></app-header>
+  <app-menu></app-menu>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</ng-template>
+
+
+

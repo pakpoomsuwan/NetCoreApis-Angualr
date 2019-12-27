@@ -1,0 +1,48 @@
+<div class="login-page">
+  <div class="login-box">
+    <div class="card">
+      <div class="card-body login-card-body">
+        <div class="login-card-body-header">
+          <img src="https://www.ngerntidlor.com/NTL/media/NTL-Library/brand-confusion/logo-ntl@2x.png" />
+        </div>
+        <form #register_form="ngForm" (submit)="register(register_form)">
+          <div class="input-group mb-3">
+            <input ngModel name="username" type="email" class="form-control" placeholder="Email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input ngModel name="password" type="password" class="form-control" placeholder="Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3 confirm-password">
+            <input ngModel name="confirmpassword" type="password" class="form-control" placeholder="Confirm Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="checkPasswordMatch(register_form)" class="alert_confirm_password">
+            Passwords don't match.
+          </div>
+          <div class="form-group select-position">
+            <select ngModel class="form-control" name="position">
+              <option value="" disabled selected>Select a position</option>
+              <option value="{{ item }}" *ngFor="let item of position">{{ item }}</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
+          <button (click)="goBack()" type="button" class="btn btn-block btn-outline-secondary">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
